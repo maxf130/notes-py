@@ -73,6 +73,9 @@ def main(argv):
         new_path = os.path.splitext(new_path)[0] + ".html"
         with open(new_path, "w") as html_f:
             html_f.write(compiled_html)
+
+    if os.path.isdir(settings.compile_path + ".old"):
+        shutil.rmtree(settings.compile_path + ".old")
     
 
 if __name__ == "__main__":
