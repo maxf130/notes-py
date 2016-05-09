@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
     name = 'notes-py',
-    packages = ['notes-py'],
+    packages = ['notes_py'],
     version = '0.0.1',
     description = 'A dumb static site generator.',
     author = 'Maximilian Friedersdorff',
@@ -17,4 +17,9 @@ setup(
         'Programming Language :: Python :: 3.4',
     ],
     install_requires = ['CommonMark>=0.6,<0.7'],
+    entry_points={
+        'console_scripts': [
+            'compile_notes=notes_py.notes:main',
+        ],
+    },
 )

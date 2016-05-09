@@ -6,7 +6,7 @@ import CommonMark
 __copyright__ = "Copyright 2016, Maximilian Friedersdorff"
 __license__ = "GPLv3"
 
-def main(argv):
+def main():
     import settings
 
     if (os.path.exists(settings.compile_path) and not 
@@ -82,4 +82,4 @@ def main(argv):
     
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
