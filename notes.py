@@ -3,6 +3,9 @@ import sys, os, shutil
 
 import CommonMark
 
+__copyright__ = "Copyright 2016, Maximilian Friedersdorff"
+__license__ = "GPLv3"
+
 def main(argv):
     import settings
 
