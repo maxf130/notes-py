@@ -36,11 +36,11 @@ def main(argv):
         else:
             return []
         
-    (mds, other) = sep_filetype(settings.content_path, '.md')
+    (mds, other) = sep_filetype(settings.content_path, ".md")
 
     # Prepare dir structure in compile_path
     if os.path.isdir(settings.compile_path):
-        shutil.move(settings.compile_path, settings.compile_path + '.old') 
+        shutil.move(settings.compile_path, settings.compile_path + ".old") 
 
     os.mkdir(settings.compile_path)
    
@@ -58,13 +58,20 @@ def main(argv):
         shutil.copy2(f, new_path, follow_symlinks=False)
 
     for f in mds:
-        with open(f, 'r') as md_f:
+        with open(f, "r") as md_f:
             md = md_f.read()
 
-        compiled_html = CommonMark.commonmark(md)
+        # Going to use simple str.format to build html to avoid deps with 
+        # templating languages
+        with open(settings.html_template, 'r') as template_f:
+            template = template_f.read()
+
+        compiled_html = template.format(body=CommonMark.commonmark(md), 
+                                        stylesheet=settings.stylesheet)
+
         new_path = f.replace(settings.content_path, settings.compile_path)
         new_path = os.path.splitext(new_path)[0] + ".html"
-        with open(new_path, 'w') as html_f:
+        with open(new_path, "w") as html_f:
             html_f.write(compiled_html)
     
 
