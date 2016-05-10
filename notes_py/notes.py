@@ -123,9 +123,9 @@ def sep_filetype(root, ftype):
             r = sep_filetype(os.path.join(root, node), ftype)
             ret = (ret[0] + r[0], ret[1] + r[1])
 
-            return ret
-        else:
-            return []
+        return ret
+    else:
+        return []
 
 if __name__ == "__main__":
     sys.exit(main())
