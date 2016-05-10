@@ -12,7 +12,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name = 'notes-py',
     packages = ['notes_py'],
-    version = '0.0.1',
+    version = '0.1.0',
     description = 'A dumb static site generator.',
     long_description = long_description,
     author = 'Maximilian Friedersdorff',
