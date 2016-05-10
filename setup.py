@@ -12,14 +12,14 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name = 'notes-py',
     packages = ['notes_py'],
-    version = '0.1.2',
+    version = '0.1.3',
     description = 'A dumb static site generator.',
     long_description = long_description,
     author = 'Maximilian Friedersdorff',
     author_email = 'max@friedersdorff.com',
     license='GPL',
     url = 'https://github.com/maxf130/notes-py',
-    download_url = 'https://github.com/maxf130/notes-py/tarball/0.1.2',
+    download_url = 'https://github.com/maxf130/notes-py/tarball/0.1.3',
     keywords = ['site generator'],
     classifiers = [
         'Development Status :: 3 - Alpha',
