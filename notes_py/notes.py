@@ -59,30 +59,9 @@ def main():
                                  compile_path + 
                                  "'exists, but is not a directory!")
 
-    def sep_filetype(root, ftype):
-        """
-        Walk along directory tree and separate contained by given ftype.
+    compile(content_path, compile_path, stylesheet, html_template)
 
-        Return 2-tuple (ftype_files, other_files) containing lists of files.
-        root is the root of the fs tree from which to start the search.
-        ftype is the file extention (including leading dot ('.')) by which to 
-        separate the files.
-        """
-        if os.path.isfile(root): 
-            if os.path.splitext(root)[-1] == ftype: 
-                return ([root], [])
-            else:
-                return ([], [root])
-        elif os.path.isdir(root):
-            ret = ([], []) 
-            for node in os.listdir(path=root):
-                r = sep_filetype(os.path.join(root, node), ftype)
-                ret = (ret[0] + r[0], ret[1] + r[1])
-
-            return ret
-        else:
-            return []
-
+def compile(content_path, compile_path, stylesheet, html_template):
     (mds, other) = sep_filetype(content_path, ".md")
 
     # Prepare dir structure in compile_path
@@ -124,6 +103,29 @@ def main():
     if os.path.isdir(compile_path + ".old"):
         shutil.rmtree(compile_path + ".old")
 
+def sep_filetype(root, ftype):
+    """
+    Walk along directory tree and separate contained by given ftype.
+
+    Return 2-tuple (ftype_files, other_files) containing lists of files.
+    root is the root of the fs tree from which to start the search.
+    ftype is the file extention (including leading dot ('.')) by which to 
+    separate the files.
+    """
+    if os.path.isfile(root): 
+        if os.path.splitext(root)[-1] == ftype: 
+            return ([root], [])
+        else:
+            return ([], [root])
+    elif os.path.isdir(root):
+        ret = ([], []) 
+        for node in os.listdir(path=root):
+            r = sep_filetype(os.path.join(root, node), ftype)
+            ret = (ret[0] + r[0], ret[1] + r[1])
+
+            return ret
+        else:
+            return []
 
 if __name__ == "__main__":
     sys.exit(main())
