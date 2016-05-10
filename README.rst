@@ -2,7 +2,7 @@
 notes-py - Yet another static site generator.
 ==============================================
 
-notes-py is a _dumb_ static site generator.  I use it to compile notes (duh) that I take about setting up packages or servers or w/e, to HTML so that I can serve them with apache and view them from any machine with internet access.  
+notes-py is a *dumb* static site generator.  I use it to compile notes (duh) that I take about setting up packages or servers or w/e, to HTML so that I can serve them with apache and view them from any machine with internet access.  
 
 Fundamentally it uses https://github.com/rtfd/CommonMark-py to compile html from markdown files (like basically every other static site generator).
 
