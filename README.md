@@ -4,7 +4,7 @@ notes-py is a _dumb_ static site generator.  Fundamentally it uses [rtfd/CommonM
 
 ## Installation
 
-Since notes-py is self contained (within notes-py/notes.py), you can just download and install this file somewhere in your path to use it.  I will make it available on PyPi shortly, so you should be able to install it with `pip install notes-py` as well.
+Since notes-py is self contained (within notes-py/notes.py), you can just download and install this file somewhere in your path to use it.  It is also available on PyPI, so you should be able to install it with `pip install notes-py` as well.
 
 If installed with pip, it will also install an entry point at compile_notes, which behaves effectively as a link to notes_py.notes.
 
