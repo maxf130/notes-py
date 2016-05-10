@@ -1,9 +1,20 @@
 from distutils.core import setup
+
+from codecs import open
+from os import path
+
+here = path.abspath(path.dirname(__file__))
+
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
+
+
 setup(
     name = 'notes-py',
     packages = ['notes_py'],
     version = '0.0.1',
     description = 'A dumb static site generator.',
+    long_description = long_description,
     author = 'Maximilian Friedersdorff',
     author_email = 'max@friedersdorff.com',
     license='GPL',
